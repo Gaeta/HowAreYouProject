@@ -116,7 +116,7 @@ app.get('/book/', async function(req, res, next) {
 
                 var bytesMessage  = crypto.AES.decrypt(item.message.toString(), HashedLockedPassword);
                 var plaintextMessage = bytesMessage.toString(crypto.enc.Utf8);
-                fixedPages.push({title: plaintextTitle, message: plaintextMessage.replace(new RegExp('%NEWLINE%','g'), "\n")})
+                fixedPages.push({title: plaintextTitle, message: plaintextMessage.replace(new RegExp('%NEWLINE%','g'), "\n"), date: moment((item.dateCreated * 1000)).toNow(true) + ' ago'})
             })
             res.render('index', {title: "My Book", page: "book", req, pages: fixedPages})
         });
@@ -252,6 +252,8 @@ app.post('/login/', async function(req, res, next) {
                 ///Welcome message
                 //req.session.custom.tempAlerts.push({type: 'success', 'message': 'Welcome ' + data.firstName + '! Thanks for joining! Please enjoy!'});
             })
+        } else {
+            cancellogin('Password Or Email Wrong.')
         }
     })
 
