@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+<%- include('partials/head'); %>
+<%- include('partials/embed'); %>
+</head>
+<body>
+<%- include('partials/navbar'); %>
+<div class="container">
+<% if (req.session.custom.alerts.length > 0) { %>
+    <% req.session.custom.alerts.forEach(async (item, index) => {  %>
+        <%if(JSON.parse(req.cookies.notifications).includes(item.id)){ } else { %>
+            <div class="alert alert-<%= item.type %> alert-dismissible fade show" role="alert">
+            <%- item.message %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="hideNotification('<%= item.id %>')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        <% } %> 
+    <% }); %>
+<% } %>    
+<% if (req.session.custom.tempAlerts.length > 0) { %>
+    <% req.session.custom.tempAlerts.forEach(async (item, index) => {  %>
+        <div class="alert alert-<%= item.type %> alert-dismissible fade show" role="alert">
+        <%- item.message %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    <% }); req.session.custom.tempAlerts = []; %>
+<% } %>  
+</div>
+<%- include('pages/' + page); %>
+
+
+</body>
+<%- include('partials/script'); %>
+</html>

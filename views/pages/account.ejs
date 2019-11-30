@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+    <!--Grid column-->
+        <div class="col-md-7 text-center mt-5">
+
+            <h1 class="">Welcome, <%= req.session.login.user.firstName %> <%= req.session.login.user.lastName %></h1>
+            <hr class="w-25">
+            <h3 class="">Email: <%= req.session.login.user.email %></h3>
+            <h3 class="">Book pages: <%= pages %></h3>
+        </div>
+        <!--Grid column-->
+
+    </div>
+</div>

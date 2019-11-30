@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+        <div class="col-md-7 text-center mt-5">
+            <h1 class="">Add Page</h1>
+            <hr class="w-25">
+            <form class="text-left" action="/book/add/" method="post">
+                <div class="form-group">
+                    <label for="title">Your Title</label>
+                    <input type="text" name="title" placeholder="Enter your title." id="title" class="form-control" rows="4" cols="50" maxlength="50" required></input>
+                    <small for="title" class="form-text text-muted mb-4">
+                        500 Max
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="title">Your Message</label>
+                    <textarea name="message" id="message" placeholder="Enter your message." class="form-control" rows="3" cols="50" maxlength="1000" required></textarea>
+                    <small for="message" class="form-text text-muted mb-4">
+                        1000 max
+                    </small>
+                </div>
+                <button class="btn btn-info my-4 btn-block blue-gradient" type="submit">Submit</button>
+            </form>
+        </div>
+    <!--Grid column-->
+    </div>
+</div>

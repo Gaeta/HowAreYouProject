@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+        <div class="col-md-7 text-center mt-5">
+            <h1 class=""><%= req.session.login.user.firstName %>'s Book!</h1>
+            <hr class="w-25">
+            <% if(pages.length <= 0 ){ %>
+                <h2 class="">You have no pages!</h2>
+            <% } else { %>
+            <div class="list-group text-left">
+                <% pages.forEach(async (item, index) => { %>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-2 h5"><%= item.title %></h5>
+                        <small>3 days ago</small>
+                    </div>
+                    <p class="mb-2" style="white-space: pre-wrap;"><%= item.message %></p>
+                </a>
+                <% }); %>
+            </div>
+            <% } %>
+            <hr class="w-25">
+            <a role="button" class="btn blue-gradient" href="/book/add/" >Add Page</a>   
+        </div>
+    <!--Grid column-->
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+  <!--Grid column-->
+  <div class="col-md-7 text-center mt-5">
+<!-- Default form register -->
+<form class="text-center border p-5 z-depth-5" action="/login/" method="post">
+
+    <p class="h4 mb-4">Sign in</p>
+
+    <!-- E-mail -->
+    <input type="email" name="email" class="form-control mb-4" required placeholder="E-mail">
+
+    <!-- Password -->
+    <input type="password" name="password" class="form-control" required placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.
+        Password is not changeable will require account deletion!
+    </small>
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block blue-gradient" type="submit">Sign in</button>
+
+    <!-- Terms of service -->
+    <p>By clicking
+        <em>Sign in</em> you agree to our
+        <a href="/terms" target="_blank">terms of service</a>
+
+</form>
+<!-- Default form register -->
+
+  </div>
+  <!--Grid column-->
+
+</div>
+</div>
